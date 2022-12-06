@@ -1,9 +1,5 @@
 function compareArrays(arr1, arr2) {
-    if (arr1.length === arr2.length){
-        return arr1.every((number, index) => number === arr2[index]);
-    } else {
-        return false;
-    }
+    return arr1.length === arr2.length && arr1.every((number, index) => number === arr2[index]);
 }
 
 function getUsersNamesInAgeRange(users, gender) {
