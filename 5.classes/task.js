@@ -101,13 +101,29 @@ class Student {
     constructor(name){
         this.name = name
         this.marks = {
-            algebra: [],
-            history: [],
+
         };
     }
 
     addMark(marks, subject){
-        if (marks >= 2 && marks <= 5){
+        if (marks >=2 && marks <=5){
+            for (let i = 0; i < this.marks.length; i++){
+                if(this.marks[i] == subject){
+                    return this.marks[i].push(marks)
+                }
+            }
+            this.marks[subject] = marks
+        }
+    }
+            /*if (marks >= 2 && marks <=5){
+           if (this.marks
+            .filter(sub => sub == subject)
+            .every((sub, index) => sub[index] === subject)
+            ){
+                this.marks[subject] += marks 
+            } else this.marks = {...this.marks, subject: []} */
+
+            /*  if (marks >= 2 && marks <= 5){
             if (this.marks.indexOf(subject) < -1){
                 this.marks = [...this.marks, subject]
             } else for (let i = 0; i < this.marks.length; i++){
@@ -115,8 +131,7 @@ class Student {
                     this.marks[i].push(...marks)
                 }
             }      
-        } 
-    }
+        }  */
 
     getAverageBySubject(subject){
         if (this.marks[subject] !== undefined){
