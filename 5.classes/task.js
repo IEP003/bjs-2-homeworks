@@ -106,37 +106,24 @@ class Student {
     }
 
     addMark(marks, subject){
-        if (marks >=2 && marks <=5){
-            for (let i = 0; i < this.marks.length; i++){
-                if(this.marks[i] == subject){
-                    return this.marks[i].push(marks)
-                }
-            }
-            this.marks[subject] = marks
+        if (marks >= 6 || marks <= 1){
+            return;
+        }
+        if (this.marks[subject] == undefined){
+           this.marks[subject] = []
+        }
+        if (this.marks[subject] !== undefined){
+            this.marks[subject].push(marks)
         }
     }
-            /*if (marks >= 2 && marks <=5){
-           if (this.marks
-            .filter(sub => sub == subject)
-            .every((sub, index) => sub[index] === subject)
-            ){
-                this.marks[subject] += marks 
-            } else this.marks = {...this.marks, subject: []} */
 
     getAverageBySubject(subject){
-        if (this.marks[subject] !== undefined){
-            return this.marks[subject].reduce((acc, marks, index, array) => acc + marks / array.length, 0);
-        } return 0
+        if (this.marks[subject] == undefined){
+            return 0;
+        } return this.marks[subject].reduce((acc, marks, index, array) => marks / array.length + acc, 0)
     }
 
     getAverage(){
-        // this.marks.filter(sub => sub !== undefined).reduce((acc, makrs, index, array) =>  )
-        let sumSubjectMarks = 0;
-        for (let i = 0; i < this.marks.length; i++){
-            for (let m = 0; m < this.marks[i].length; m++){
-                sumSubjectMarks += this.marks[i][m] / this.marks[i].length;
-            }
-        }
-        return sumSubjectMarks;
+        return Object.keys(this.marks).reduce((acc, marks, index, array) => this.getAverageBySubject(marks) / array.length + acc, 0)
     }
 }
