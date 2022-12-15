@@ -123,16 +123,6 @@ class Student {
                 this.marks[subject] += marks 
             } else this.marks = {...this.marks, subject: []} */
 
-            /*  if (marks >= 2 && marks <= 5){
-            if (this.marks.indexOf(subject) < -1){
-                this.marks = [...this.marks, subject]
-            } else for (let i = 0; i < this.marks.length; i++){
-                if (this.marks[i] == subject){
-                    this.marks[i].push(...marks)
-                }
-            }      
-        }  */
-
     getAverageBySubject(subject){
         if (this.marks[subject] !== undefined){
             return this.marks[subject].reduce((acc, marks, index, array) => acc + marks / array.length, 0);
