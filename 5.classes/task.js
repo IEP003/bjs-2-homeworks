@@ -79,7 +79,7 @@ class Library {
         //return this.books.filter(book => book[type] == value)[0] ?? null;
         for (let i = 0; i < this.books.length; i++){
             if (this.books[i][type] === value){
-                return this.books[i]
+                return this.books[i];
             }
         }
         return null;
